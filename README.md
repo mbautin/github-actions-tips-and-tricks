@@ -39,9 +39,17 @@ More on creating a build matrix (from https://help.github.com/en/actions/referen
 
 > `jobs.<job_id>.strategy.matrix`
 > You can define a matrix of different job configurations. A matrix allows you to create multiple jobs by performing variable substitution in a single job definition. For example, you can use a matrix to create jobs for more than one supported version of a programming language, operating system, or tool. A matrix reuses the job's configuration and creates a job for each matrix you configure.
-
+>
 > job matrix can generate a maximum of 256 jobs per workflow run. This limit also applies to self-hosted runners.
-
+>
 > Each option you define in the matrix has a key and value. The keys you define become properties in the matrix context and you can reference the property in other areas of your workflow file. For example, if you define the key os that contains an array of operating systems, you can use the matrix.os property as the value of the runs-on keyword to create a job for each operating system. For more information, see "Context and expression syntax for GitHub Actions."
-
+>
 > The order that you define a matrix matters. The first option you define will be the first job that runs in your workflow.
+
+## Running tests on pull requests
+
+Relevant discussion: https://github.community/t5/GitHub-Actions/Run-a-GitHub-action-on-pull-request-for-PR-opened-from-a-forked/td-p/15426
+
+## Collapsing boring parts of the log
+
+https://github.community/t5/GitHub-Actions/Has-github-action-somthing-like-travis-fold/td-p/37715
