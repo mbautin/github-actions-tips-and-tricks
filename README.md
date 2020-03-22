@@ -50,6 +50,17 @@ More on creating a build matrix (from https://help.github.com/en/actions/referen
 
 Relevant discussion: https://github.community/t5/GitHub-Actions/Run-a-GitHub-action-on-pull-request-for-PR-opened-from-a-forked/td-p/15426
 
+https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-events-for-forked-repositories
+
+> Pull request events for forked repositories
+> Note: Workflows do not run on private base repositories when you open a pull request from a forked repository.
+>
+> When you create a pull request from a forked repository to the base repository, GitHub sends the pull_request event to the base repository and no pull request events occur on the forked repository.
+>
+> Workflows don't run on forked repositories by default. You must enable GitHub Actions in the Actions tab of the forked repository.
+>
+> The permissions for the GITHUB_TOKEN in forked repositories is read-only. For more information, see "Authenticating with the GITHUB_TOKEN."
+
 ## Collapsing boring parts of the log
 
 https://github.community/t5/GitHub-Actions/Has-github-action-somthing-like-travis-fold/td-p/37715
