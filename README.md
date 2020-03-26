@@ -104,10 +104,11 @@ Suppose we want to create unique tags or releases for each run of a GitHub Actio
 From this answer: https://github.community/t5/GitHub-Actions/Getting-the-run-id-of-a-run-in-Github-Actions/m-p/45658#M6302
 
 > run_id is available in the GitHub context and as an environment variable (GITHUB_RUN_ID) on the runner.
+>
 > GitHub Context: 
->  Variable: github.run_id
-> Docs: https://help.github.com/en/actions/automating-your-workflow-with-github-actions/contexts-and-express...
+> - Variable: github.run_id
+> - Docs: https://help.github.com/en/actions/automating-your-workflow-with-github-actions/contexts-and-express...
 >
 > Environment variable: 
-> Variable: GITHUB_RUN_ID
-> Docs: https://help.github.com/en/actions/automating-your-workflow-with-github-actions/using-environment-va...
+> - Variable: GITHUB_RUN_ID
+> - Docs: https://help.github.com/en/actions/automating-your-workflow-with-github-actions/using-environment-va...
