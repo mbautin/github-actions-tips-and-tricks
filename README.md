@@ -42,9 +42,37 @@ More on creating a build matrix (from https://help.github.com/en/actions/referen
 >
 > job matrix can generate a maximum of 256 jobs per workflow run. This limit also applies to self-hosted runners.
 >
-> Each option you define in the matrix has a key and value. The keys you define become properties in the matrix context and you can reference the property in other areas of your workflow file. For example, if you define the key os that contains an array of operating systems, you can use the matrix.os property as the value of the runs-on keyword to create a job for each operating system. For more information, see "Context and expression syntax for GitHub Actions."
+> Each option you define in the matrix has a key and value. The keys you define become properties in the matrix context and you can reference the property in other areas of your workflow file. For example, if you define the key os that contains an array of operating systems, you can use the `matrix.os` property as the value of the runs-on keyword to create a job for each operating system. For more information, see [Context and expression syntax for GitHub Actions](https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions).
 >
 > The order that you define a matrix matters. The first option you define will be the first job that runs in your workflow.
+
+In the example above, the `os` array ends up being the set of names of jobs, which is inconvenient (two jobs have exactly the same name). Instead of that, I found that this setup works:
+
+```
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        name:
+          - macOS
+          - "CentOS 7"
+          - "Ubuntu 18.04"
+        include:
+          - name: "macOS"
+            os: macos-latest
+            docker_image: none
+
+          - name: "CentOS 7"
+            os: ubuntu-latest
+            docker_image: yugabyteci/yb_build_infra_centos7:v2020-03-24T08_20_00
+
+          - name: "Ubuntu 18.04"
+            os: ubuntu-latest
+            docker_image: yugabyteci/yb_build_infra_ubuntu1804:v2020-03-24T08_20_00
+```
+(used in https://github.com/yugabyte/yugabyte-bash-common/blob/master/.github/workflows/build.yml). Here, we are giving the parallel jobs human-readable names `macOS`, `CentOS 7` and `Ubuntu 18.04`. We have to reference these job names in the items of the `include` list, otherwise something strange happens: the same element of the `include` list could be used in multiple jobs, even with different names. In this example, we are running one job using macOS and two jobs using the default Ubuntu image as the host OS and specify different Docker images inside of those jobs. I suspect we could have used a different key instead of `name` and it might work just as well.
 
 ## Running tests on pull requests
 
