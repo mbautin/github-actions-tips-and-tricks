@@ -96,3 +96,18 @@ https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-
 ## Collapsing boring parts of the log
 
 https://github.community/t5/GitHub-Actions/Has-github-action-somthing-like-travis-fold/td-p/37715
+
+## Determining the GitHub Action run id
+
+Suppose we want to create unique tags or releases for each run of a GitHub Action in master. We need some kind of a "run id" variable.
+
+From this answer: https://github.community/t5/GitHub-Actions/Getting-the-run-id-of-a-run-in-Github-Actions/m-p/45658#M6302
+
+> run_id is available in the GitHub context and as an environment variable (GITHUB_RUN_ID) on the runner.
+> GitHub Context: 
+>  Variable: github.run_id
+> Docs: https://help.github.com/en/actions/automating-your-workflow-with-github-actions/contexts-and-express...
+>
+> Environment variable: 
+> Variable: GITHUB_RUN_ID
+> Docs: https://help.github.com/en/actions/automating-your-workflow-with-github-actions/using-environment-va...
