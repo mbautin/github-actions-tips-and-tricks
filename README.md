@@ -74,6 +74,10 @@ jobs:
 ```
 (used in https://github.com/yugabyte/yugabyte-bash-common/blob/master/.github/workflows/build.yml). Here, we are giving the parallel jobs human-readable names `macOS`, `CentOS 7` and `Ubuntu 18.04`. We have to reference these job names in the items of the `include` list, otherwise something strange happens: the same element of the `include` list could be used in multiple jobs, even with different names. In this example, we are running one job using macOS and two jobs using the default Ubuntu image as the host OS and specify different Docker images inside of those jobs. I suspect we could have used a different key instead of `name` and it might work just as well.
 
+The end result looks like this:
+
+![image](https://user-images.githubusercontent.com/552936/77607025-5b2db400-6ed6-11ea-8905-affe9299b496.png)
+
 ## Running tests on pull requests
 
 Relevant discussion: https://github.community/t5/GitHub-Actions/Run-a-GitHub-action-on-pull-request-for-PR-opened-from-a-forked/td-p/15426
