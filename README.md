@@ -107,8 +107,8 @@ From this answer: https://github.community/t5/GitHub-Actions/Getting-the-run-id-
 >
 > GitHub Context: 
 > - Variable: github.run_id
-> - Docs: https://help.github.com/en/actions/automating-your-workflow-with-github-actions/contexts-and-express...
+> - Docs: https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
 >
 > Environment variable: 
 > - Variable: GITHUB_RUN_ID
-> - Docs: https://help.github.com/en/actions/automating-your-workflow-with-github-actions/using-environment-va...
+> - Docs: https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables
